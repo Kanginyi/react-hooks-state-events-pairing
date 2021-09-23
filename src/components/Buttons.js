@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Buttons({upvotes, downvotes}) {
+function Buttons({upvotes, downvotes, clickHandler}) {
     const [upvote, setUpvotes] = useState(upvotes);
     const [downvote, setDownvotes] = useState(downvotes);
 
@@ -16,6 +16,9 @@ function Buttons({upvotes, downvotes}) {
         <>
             <button onClick={handleLikes}>{upvote} 👍</button>
             <button onClick={handleDislikes}>{downvote} 👎</button>
+            <br/><br/>
+            <button onClick={clickHandler}>Hide Comments</button>
+            <hr/>
         </>
     );
 }

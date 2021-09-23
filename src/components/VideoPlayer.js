@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Video({src="https://www.youtube.com/embed/dQw4w9WgXcQ"}) {
+function VideoPlayer({src="https://www.youtube.com/embed/dQw4w9WgXcQ"}) {
     return (
         <>
             <iframe
@@ -15,4 +15,4 @@ function Video({src="https://www.youtube.com/embed/dQw4w9WgXcQ"}) {
     );
 }
 
-export default Video;
+export default VideoPlayer;

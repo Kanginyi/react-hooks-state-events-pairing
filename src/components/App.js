@@ -1,20 +1,26 @@
 import video from "../data/video.js";
-import Video from "./Video.js";
+import { useState } from "react";
+import VideoPlayer from "./VideoPlayer.js";
 import Title from "./Title.js";
 import Buttons from "./Buttons.js";
-import Comments from "./Comments.js";
+import CommentBox from "./CommentBox.js";
 
-const {id, title, embedUrl, views, createdAt, upvotes, downvotes, comments} = video;
+
+const {title, embedUrl, views, createdAt, upvotes, downvotes, comments} = video;
 
 function App() {
-  console.log("Here's your data:", video);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const clickHandler = () => {
+    setIsVisible(prevState => !prevState);
+  }
 
   return (
     <div className="App">
-      <Video src={embedUrl} />
+      <VideoPlayer src={embedUrl} />
       <Title title={title} views={views} createdAt={createdAt}/>
-      <Buttons upvotes={upvotes} downvotes={downvotes}/>
-      <Comments comments={comments}/>
+      <Buttons upvotes={upvotes} downvotes={downvotes} clickHandler={clickHandler}/>
+      {isVisible ? <CommentBox comments={comments}/> : null}
     </div>
   );
 }
